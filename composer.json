@@ -1,0 +1,20 @@
+{
+    "name": "devsalman/posted",
+    "description": "Newbie Blogging Framework",
+    "keywords": ["framework", "blogging", "posted"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "symfony/http-foundation": "^2.7",
+        "symfony/routing": "^2.7",
+        "symfony/http-kernel": "^2.7",
+        "php-di/php-di": "^5.1",
+        "doctrine/cache": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Framework\\": "framework/"
+        }
+    }
+}

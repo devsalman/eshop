@@ -13,6 +13,7 @@ class Application
     protected $routes;
     protected $context;
     protected $container;
+    protected $configs;
 
     function __construct(
         Routing\RouteCollection $routes,
@@ -34,7 +35,7 @@ class Application
 
         try {
             $request->attributes->add($matcher->match($request->getPathInfo()));
-            $controllerInfo = explode("::", $request->get("_controller"));
+            $controllerInfo = explode("::", $request->get("controller"));
             $action = $controllerInfo[1];
 
             $controller = $this->container->make($controllerInfo[0]);
@@ -46,5 +47,15 @@ class Application
         }
 
         return $response;
+    }
+
+    public function setConfigs($configs = [])
+    {
+        $this->configs = $configs;
+    }
+
+    public function setRoutes($routes = [])
+    {
+        $this->routes = $routes;
     }
 }

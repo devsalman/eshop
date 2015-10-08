@@ -7,15 +7,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing;
 
+$routes = include __DIR__.'/app/routes.php';
+$configs = include __DIR__.'/framework/config.php';
+
 $builder = new DI\ContainerBuilder();
 $builder->useAutowiring(true);
 $builder->useAnnotations(false);
-
 $container = $builder->build();
 
-$routes = include __DIR__.'/app/routes.php';
-$context = new Routing\RequestContext();
-$app = new Application($routes, $context, $container);
+$app = $container->make("Framework\Application");
+$app->setConfigs($configs);
+$app->setRoutes($routes);
 
 $request = Request::createFromGlobals();
 $response = $app->handle($request);

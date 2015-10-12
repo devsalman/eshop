@@ -10,19 +10,9 @@ use DI\Container;
 
 class Application
 {
-    protected $routes;
-    protected $context;
-    protected $container;
-    protected $configs;
-
-    function __construct(
-        Routing\RouteCollection $routes,
-        Routing\RequestContext $context,
-        Container $container)
+    function __construct(Routing\RequestContext $context)
     {
-        $this->routes = $routes;
         $this->context = $context;
-        $this->container = $container;
     }
 
     public function handle(Request $request)
@@ -36,9 +26,10 @@ class Application
         try {
             $request->attributes->add($matcher->match($request->getPathInfo()));
             $controllerInfo = explode("::", $request->get("controller"));
+            $className = $controllerInfo[0];
             $action = $controllerInfo[1];
 
-            $controller = $this->container->make($controllerInfo[0]);
+            $controller = $this->container->make($className);
             $response = $controller->$action($request);
         } catch (Routing\Exception\ResourceNotFoundException $e) {
             $response = new Response('Not Found', 404);
@@ -49,9 +40,9 @@ class Application
         return $response;
     }
 
-    public function setConfigs($configs = [])
+    public function setDIContainer(Container $container)
     {
-        $this->configs = $configs;
+        $this->container = $container;
     }
 
     public function setRoutes($routes = [])

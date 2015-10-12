@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Framework\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class WelcomeController extends Controller

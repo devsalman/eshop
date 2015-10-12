@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace Framework;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +14,8 @@ class Controller
         }
 
         ob_start();
-        include __DIR__.'/../../framework/functions.php';
-        include sprintf(__DIR__.'/../../views/%s.php', $view);
+        include 'functions.php';
+        include sprintf(__DIR__.'/../views/%s.php', $view);
         return new Response(ob_get_clean());
     }
 }

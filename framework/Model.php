@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Framework;
 
 use Pixie\Connection;
 use Pixie\QueryBuilder\QueryBuilderHandler;

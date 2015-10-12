@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Framework\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use App\Models\User;
 

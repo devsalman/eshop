@@ -17,7 +17,7 @@
 
         <div class="uk-vertical-align uk-text-center uk-height-1-1">
             <div class="uk-vertical-align-middle" style="width: 250px;">
-
+                <?= isset($errors) ? "<div class='uk-alert uk-alert-danger'>$errors</div>" : ""; ?>
                 <form class="uk-panel uk-panel-box uk-form" method="POST" action="authenticate">
                     <div class="uk-form-row">
                         <input class="uk-width-1-1 uk-form-large" name="email" type="text" placeholder="Email">

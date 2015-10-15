@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     public function index(Request $request)
     {
-        return parent::response($request, "auth/login");
+        return $this->response($request, "auth/login");
     }
 
     public function authenticate(Request $request)
@@ -28,6 +28,11 @@ class LoginController extends Controller
             ->where('password', '=', $password)
             ->get();
 
-        return parent::response($request, "auth/login");
+        if(empty($user)) {
+            $errors = "Incorrect username or password";
+            return $this->response($request, 'auth/login', ['errors' => $errors]);
+        }
+
+        return $this->redirect($request, '/');
     }
 }

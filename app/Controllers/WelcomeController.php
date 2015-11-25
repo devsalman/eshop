@@ -9,6 +9,6 @@ class WelcomeController extends Controller
 {
     public function index(Request $request)
     {
-        return parent::response($request, "welcome");
+        return $this->response($request, "welcome");
     }
 }

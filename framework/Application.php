@@ -29,7 +29,7 @@ class Application
             $className = $controllerInfo[0];
             $action = $controllerInfo[1];
 
-            $controller = $this->container->make($className);
+            $controller = $this->container->get($className);
             $response = $controller->$action($request);
         } catch (Routing\Exception\ResourceNotFoundException $e) {
             $response = new Response('Not Found', 404);

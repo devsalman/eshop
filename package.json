@@ -1,0 +1,35 @@
+{
+  "name": "tryout",
+  "version": "1.0.0",
+  "description": "online learning platform",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-less": "^1.1.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "jit-grunt": "^0.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devsalman/tryout.git"
+  },
+  "keywords": [
+    "oline",
+    "learning",
+    "php",
+    "student",
+    "teacher",
+    "web"
+  ],
+  "author": "Salman El Farisi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devsalman/tryout/issues"
+  },
+  "homepage": "https://github.com/devsalman/tryout#readme"
+}

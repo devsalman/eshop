@@ -10,7 +10,8 @@ module.exports = function(grunt) {
                     optimization: 2
                 },
                 files: {
-                    'public/assets/app.css' : 'resources/less/app.less'
+                    'public/assets/css/bootstrap.min.css' : 'bower_components/bootstrap/less/bootstrap.less',
+                    'public/assets/css/app.min.css' : 'resources/less/app.less'
                 }
             }
         },
@@ -22,8 +23,19 @@ module.exports = function(grunt) {
                     nospawn: true
                 }
             }
+        },
+        uglify: {
+            bootstrap: {
+                files: {
+                    'public/assets/js/bootstrap.min.js' : [
+                        'bower_components/bootstrap/js/alert.js',
+                        'bower_components/bootstrap/js/button.js',
+                        'bower_components/bootstrap/js/modal.js'
+                    ]
+                }
+            }
         }
     });
 
-    grunt.registerTask('default', ['less', 'watch']);
+    grunt.registerTask('default', 'watch', ['uglify', 'less']);
 }
